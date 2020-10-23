@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Play&display=swap');
+* {
+    font-family: 'Play', sans-serif !important;
+}
+.flight-comp {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+mat-card {
+    margin: 20px;
+    width: 50%;
+    text-align: center;
+}
+.list {
+    display: flex;
+    /* justify-content: center; */
+    padding: 0;
+    margin: 5px;
+    align-items: center;
+    flex-direction: column;
+}
+.flight {
+    display: flex;
+    /* border: 1px solid;  */
+    align-items: flex-end;
+    justify-content: center;
+    margin: 5px 0;
+    width: auto;
+}
+.svg-div {
+    /* border: 1px solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 650px) {
+    
+    mat-card {
+        margin: 20px;
+        width: auto;
+    }
+    .flight-comp > h1, h2, h3{
+        font-size: smaller;
+    }
+}

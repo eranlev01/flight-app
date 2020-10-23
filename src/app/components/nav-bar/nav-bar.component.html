@@ -1,0 +1,56 @@
+<mat-toolbar color="primary">
+  <span>Flight Scanner</span>
+    <form [formGroup]="form" class="container" (ngSubmit)="sub()">
+      <div class="from-to-div">
+        <mat-form-field appearance="legacy" class="inputs">
+          <input matInput placeholder="From" formControlName="from">
+          <!-- <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of options" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete> -->
+        </mat-form-field>
+        <mat-form-field appearance="legacy" class="inputs">
+          <input matInput placeholder="To" formControlName="to">
+          <!-- <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of options" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete> -->
+        </mat-form-field>
+      </div>
+      <div class="dates-div">
+        <mat-form-field appearance="legacy" class="inputs">
+          <input matInput type="date" [min]="today" placeholder="Depart" formControlName="depart">
+        </mat-form-field>
+        <mat-form-field appearance="legacy" class="inputs">
+          <input matInput type="date" [min]="today" placeholder="Return" formControlName="return">
+        </mat-form-field>
+      </div>
+      <div class="max-min-div">
+       <mat-form-field appearance="legacy" class="inputs">
+        <input matInput type="number" placeholder="Min-Price" formControlName="minPrice">
+      </mat-form-field>
+      <mat-form-field appearance="legacy" class="inputs">
+        <input matInput type="number" placeholder="Max-Price" formControlName="maxPrice">
+      </mat-form-field>  
+      <button mat-stroked-button [disabled]="form.invalid" type="submit">Search</button>
+      </div>
+    </form>
+ 
+  <div class="sort">
+    <span>Sort By:</span>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle (click)="sortByCon()" value="Sort by connections">Connections</mat-button-toggle>
+      <mat-button-toggle (click)="sortByDur()" value="Sort by duration">Duration</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div>
+    <section class="radio-section">
+      <label class="radio-label">Stops:</label>
+      <mat-radio-group [(ngModel)]="radio" ngDefaultControl>
+        <mat-radio-button *ngFor="let c of connections" class="radio-button" [value]="c">{{ c }}</mat-radio-button>
+      </mat-radio-group>
+    </section>
+  </div>
+</mat-toolbar>
